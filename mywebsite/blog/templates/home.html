@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock title %}
+{% block content %}
+  <center><h1>{{ heading }}</h1></center>
+  <ul>
+    {% for sk in semua_kategori  %}
+      <a href="{% url 'kategori' sk.category %}">{{sk.category}}</a>
+    {% endfor %}
+  </ul>
+  <p class='text-capitalize'> <a href="{% url 'semua_postingan' %}" class='text-decoration-none'>Post</a>/{{kategori}}/</p>
+  <hr>
+  {% for post in post %}
+    <h2> <a href="{% url 'postingan' post.slug %}" class='text-decoration-none'>{{post.judul}}</a> </h2>
+    <p>{{ post.dibuat }}</p>
+    <p class='text-capitalize'>category: {{ post.category }}</p>
+    <h5>{{ post.body }}</h5>
+    <hr>
+  {% endfor %}
+{% endblock content %}

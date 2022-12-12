@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{judul}}{% endblock title %}
+
+{% block content %}
+  {% for post in post %}
+    <h2> <a href="{% url 'postingan' post.slug %}" class='text-decoration-none'>{{ post.judul }}</a> </h2>
+    <p>{{ post.body }}</p>
+    <hr>
+  {% endfor %}
+{% endblock content %}

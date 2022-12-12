@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block title %} {{post.judul}} {% endblock title %}
+{% block content %}
+  <div class='container'>
+    <h1>{{post.judul}}</h1>
+    <h6>Dibuat pada: {{post.dibuat}}</h6>
+    <p class='text-capitalize'> <a href="{% url 'semua_postingan' %}">Post</a>/<a href="{% url 'kategori' post.category %}">{{post.category}}</a>/{{post.judul}}</p>
+    <hr>
+    <h4>{{post.body}}</h4>
+
+  </div>
+{% endblock content %}
