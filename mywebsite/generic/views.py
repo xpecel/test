@@ -40,7 +40,7 @@ def weather(request):
 
 def test_speed(request, jumlah):
     ekse = ''
-    for jumlah in jumlah
+    for jumlah in jumlah:
         ekse += ' speedtest; '
     os.system(f'{ekse}')
     selesai = f'speedtest sebanya {jumlah} selesai!'
