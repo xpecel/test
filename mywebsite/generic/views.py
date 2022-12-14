@@ -38,7 +38,7 @@ def weather(request):
         return render(request, 'weather.html', {'title':'Weather'})
 
 
-def test_speed(request, jumlah):
+def speedtest(request, jumlah):
     ekse = ''
     for jumlah in jumlah:
         ekse += ' speedtest; '
