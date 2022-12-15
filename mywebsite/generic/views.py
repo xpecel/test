@@ -40,9 +40,20 @@ def weather(request):
 
 def speedtest(request, jumlah):
     ekse = ''
-    for jumlah in jumlah:
-        ekse += ' speedtest; '
+    for jumlah in range(jumlah):
+        ekse += ' ls; '
     os.system(f'{ekse}')
     selesai = f'speedtest sebanya {jumlah} selesai!'
     return HttpResponse(selesai)
 
+def check_bandwith(request):
+    hasil = os.popen('clear && bash tes.sh')
+    if request.user_agent.browser.family == 'curl':
+        return HttpResponse(hasil.read())
+    else:
+        hasil = os.popen('clear && bash tes.sh')
+        konteks = {
+            'judul':'check bandiwth',
+            'hasil':hasil.read(),
+        }
+        return render(request, 'check.html', konteks)
